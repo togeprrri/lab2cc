@@ -1,5 +1,6 @@
 const express = require("express");
 const kenx = require("knex");
+require("dotenv").config();
 
 const db = kenx({
   client: "pg",
@@ -11,6 +12,7 @@ const db = kenx({
   }
 });
 
+console.log(db.client.config)
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
